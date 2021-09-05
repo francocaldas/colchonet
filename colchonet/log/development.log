@@ -567,3 +567,48 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 24ms (Views: 22.8ms | ActiveRecord: 0.0ms | Allocations: 3994)
 
 
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPasswordDigestToUsers (20210905105643)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210905105643"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ lib/tasks/migrar_senhas.rake:7:in `block (2 levels) in <main>'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/migrar_senhas.rake:11:in `block (2 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/migrar_senhas.rake:16:in `block (3 levels) in <main>'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "franco@teste.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/migrar_senhas.rake:16:in `block (3 levels) in <main>'
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "password_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2021-09-05 11:03:27.932229"], ["password_digest", "$2a$12$6cTUqUtZEpXJqM8tLmubbezowGp.Dxgjy3p6VnmDnj4DBMzn.GMtG"], ["id", 1]]
+  ↳ lib/tasks/migrar_senhas.rake:16:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/migrar_senhas.rake:16:in `block (3 levels) in <main>'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemovePasswordFromUsers (20210905110404)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "full_name" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "password" varchar DEFAULT NULL, "location" varchar DEFAULT NULL, "bio" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "password_digest" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ausers" ("id","full_name","email","password","location","bio","created_at","updated_at","password_digest")
+                     SELECT "id","full_name","email","password","location","bio","created_at","updated_at","password_digest" FROM "users"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "full_name" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "location" varchar DEFAULT NULL, "bio" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "password_digest" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","full_name","email","location","bio","created_at","updated_at","password_digest")
+                     SELECT "id","full_name","email","location","bio","created_at","updated_at","password_digest" FROM "ausers"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210905110404"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
