@@ -612,3 +612,192 @@ Migrating to RemovePasswordFromUsers (20210905110404)
   [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2021-09-05 08:40:43 -0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" LIMIT ?[0m  [["LIMIT", 3]]
+  ↳ app/controllers/home_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 443)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 526.4ms | Allocations: 20421)
+Completed 200 OK in 662ms (Views: 615.3ms | ActiveRecord: 0.5ms | Allocations: 25503)
+
+
+Started GET "/rooms" for 127.0.0.1 at 2021-09-05 08:43:17 -0300
+Processing by RoomsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered rooms/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1199)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.8ms | Allocations: 4911)
+Completed 200 OK in 28ms (Views: 24.5ms | ActiveRecord: 0.6ms | Allocations: 6250)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2021-09-05 08:43:20 -0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 20.8ms | Allocations: 4421)
+  Rendered users/new.html.erb within layouts/application (Duration: 25.0ms | Allocations: 4876)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 39.5ms | Allocations: 8580)
+Completed 200 OK in 74ms (Views: 45.4ms | ActiveRecord: 1.9ms | Allocations: 15561)
+
+
+Started GET "/" for 127.0.0.1 at 2021-09-05 08:43:23 -0300
+Processing by HomeController#index as HTML
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" LIMIT ?[0m  [["LIMIT", 3]]
+  ↳ app/controllers/home_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 49.9ms | Allocations: 4209)
+Completed 200 OK in 59ms (Views: 51.2ms | ActiveRecord: 0.5ms | Allocations: 5419)
+
+
+Started GET "/rooms" for 127.0.0.1 at 2021-09-05 08:43:26 -0300
+Processing by RoomsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered rooms/index.html.erb within layouts/application (Duration: 17.4ms | Allocations: 1261)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 33.2ms | Allocations: 4791)
+Completed 200 OK in 36ms (Views: 34.2ms | ActiveRecord: 0.2ms | Allocations: 5270)
+
+
+Started GET "/rooms/new" for 127.0.0.1 at 2021-09-05 08:43:27 -0300
+Processing by RoomsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/new.html.erb within layouts/application
+  Rendered rooms/_form.html.erb (Duration: 24.0ms | Allocations: 1492)
+  Rendered rooms/new.html.erb within layouts/application (Duration: 58.4ms | Allocations: 1976)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 73.9ms | Allocations: 5525)
+Completed 200 OK in 93ms (Views: 75.1ms | ActiveRecord: 1.8ms | Allocations: 9378)
+
+
+Started GET "/rooms" for 127.0.0.1 at 2021-09-05 08:43:29 -0300
+Processing by RoomsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered rooms/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 723)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.1ms | Allocations: 4843)
+Completed 200 OK in 29ms (Views: 27.1ms | ActiveRecord: 0.2ms | Allocations: 5317)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2021-09-05 08:43:31 -0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 8.7ms | Allocations: 1400)
+  Rendered users/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 1507)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 27.3ms | Allocations: 5623)
+Completed 200 OK in 30ms (Views: 28.6ms | ActiveRecord: 0.0ms | Allocations: 6097)
+
+
+Started GET "/" for 127.0.0.1 at 2021-09-05 08:43:33 -0300
+Processing by HomeController#index as HTML
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" LIMIT ?[0m  [["LIMIT", 3]]
+  ↳ app/controllers/home_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 4185)
+Completed 200 OK in 27ms (Views: 21.5ms | ActiveRecord: 0.2ms | Allocations: 5230)
+
+
+Started GET "/" for 127.0.0.1 at 2021-09-05 08:43:35 -0300
+Processing by HomeController#index as HTML
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" LIMIT ?[0m  [["LIMIT", 3]]
+  ↳ app/controllers/home_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 3583)
+Completed 200 OK in 19ms (Views: 13.8ms | ActiveRecord: 0.2ms | Allocations: 4629)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2021-09-05 08:43:37 -0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 15.9ms | Allocations: 1396)
+  Rendered users/new.html.erb within layouts/application (Duration: 18.1ms | Allocations: 1932)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 35.5ms | Allocations: 5631)
+Completed 200 OK in 38ms (Views: 36.6ms | ActiveRecord: 0.0ms | Allocations: 6095)
+
+
+Started GET "/" for 127.0.0.1 at 2021-09-05 08:43:38 -0300
+Processing by HomeController#index as HTML
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" LIMIT ?[0m  [["LIMIT", 3]]
+  ↳ app/controllers/home_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.7ms | Allocations: 4114)
+Completed 200 OK in 29ms (Views: 21.7ms | ActiveRecord: 0.2ms | Allocations: 5162)
+
+
+Started GET "/rooms" for 127.0.0.1 at 2021-09-05 08:43:40 -0300
+Processing by RoomsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered rooms/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 717)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 4753)
+Completed 200 OK in 23ms (Views: 21.2ms | ActiveRecord: 0.3ms | Allocations: 5216)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2021-09-05 08:43:43 -0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 9.0ms | Allocations: 1395)
+  Rendered users/new.html.erb within layouts/application (Duration: 9.7ms | Allocations: 1502)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 5538)
+Completed 200 OK in 28ms (Views: 27.0ms | ActiveRecord: 0.0ms | Allocations: 6001)
+
+
+Started GET "/" for 127.0.0.1 at 2021-09-05 08:43:45 -0300
+Processing by HomeController#index as HTML
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" LIMIT ?[0m  [["LIMIT", 3]]
+  ↳ app/controllers/home_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.4ms | Allocations: 4185)
+Completed 200 OK in 33ms (Views: 25.6ms | ActiveRecord: 0.2ms | Allocations: 5232)
+
+
+Started GET "/" for 127.0.0.1 at 2021-09-05 08:43:46 -0300
+Processing by HomeController#index as HTML
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" LIMIT ?[0m  [["LIMIT", 3]]
+  ↳ app/controllers/home_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 3583)
+Completed 200 OK in 22ms (Views: 17.5ms | ActiveRecord: 0.2ms | Allocations: 4628)
+
+
