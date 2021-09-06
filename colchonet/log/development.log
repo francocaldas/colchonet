@@ -801,3 +801,58 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 22ms (Views: 17.5ms | ActiveRecord: 0.2ms | Allocations: 4628)
 
 
+Started GET "/" for 127.0.0.1 at 2021-09-06 10:25:47 -0300
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mRoom Load (0.8ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" LIMIT ?[0m  [["LIMIT", 3]]
+  ↳ app/controllers/home_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 444)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 52.8ms | Allocations: 7419)
+Completed 200 OK in 124ms (Views: 75.7ms | ActiveRecord: 0.8ms | Allocations: 12606)
+
+
+Started GET "/" for 127.0.0.1 at 2021-09-06 10:25:53 -0300
+Processing by HomeController#index as HTML
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" LIMIT ?[0m  [["LIMIT", 3]]
+  ↳ app/controllers/home_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 43)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 3743)
+Completed 200 OK in 23ms (Views: 16.5ms | ActiveRecord: 0.3ms | Allocations: 5051)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2021-09-06 10:25:54 -0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 20.6ms | Allocations: 4345)
+  Rendered users/new.html.erb within layouts/application (Duration: 23.1ms | Allocations: 4769)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 34.2ms | Allocations: 8475)
+Completed 200 OK in 64ms (Views: 36.6ms | ActiveRecord: 1.2ms | Allocations: 14854)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-09-06 10:25:56 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"full_name"=>"", "location"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "bio"=>""}, "commit"=>"Create User"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 25.4ms | Allocations: 6501)
+  Rendered users/new.html.erb within layouts/application (Duration: 26.9ms | Allocations: 6615)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 40.0ms | Allocations: 10204)
+Completed 200 OK in 67ms (Views: 42.8ms | ActiveRecord: 1.2ms | Allocations: 14900)
+
+
