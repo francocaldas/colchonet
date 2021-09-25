@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  scope :confirmed, -> { where.not(confirmed_at: nil) }
+
   before_create do |user|
     user.confirmation_token = SecureRandom.urlsafe_base64
   end
@@ -22,6 +24,12 @@ class User < ApplicationRecord
 
   def confirmed?
     confirmed_at.present?
+  end
+
+  def self.authenticate(email, password)
+    user = confirmed.
+            find_by(email: email).
+            try(:authenticate, password)
   end
 
   private
