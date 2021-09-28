@@ -3,13 +3,17 @@ class RoomsController < ApplicationController
 
   # GET /rooms or /rooms.json
   def index
-    #@rooms = Room.all
-    @rooms = Room.most_recent.limit(4)
+    @rooms = Room.most_recent.map do |room|
+      # Não exibiremos o formulário na listagem
+      RoomPresenter.new(room, self, false)
+    end
   end
 
   # GET /rooms/1 or /rooms/1.json
   def show
-    @room = Room.find(params[:id])
+    room_model = Room.find(params[:id])
+    
+    @room = RoomPresenter.new(room_model, self)
   end
 
   # GET /rooms/new
