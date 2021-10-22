@@ -21,5 +21,7 @@ module Colchonet
     config.time_zone = 'Brasilia'
 
     config.i18n.default_locale = :"pt-BR"
+
+    config.autoloader = :classic
   end
 end
